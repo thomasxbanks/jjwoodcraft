@@ -1,0 +1,39 @@
+#nav-icon_container {
+  @extend %grid;
+  @extend %grid_row;
+  @extend %grid_wrap;
+  @extend %align-center;
+  @extend %justify-end;
+  flex-grow: 1;
+  font-size: 0;
+  .nav-icon {
+    display: inline-block;
+    vertical-align: top;
+    button {
+      @extend %button;
+    }
+    button,
+    a {
+      @extend %grid;
+      @extend %align-center;
+      @extend %justify-center;
+      width: 2rem;
+      height: 2rem;
+      &:hover {
+        animation: pulse 1 $speed-std;
+      }
+      .scroll {
+        &[data-state="shown"] {
+          display: block;
+        }
+        &[data-state="hidden"] {
+          display: none;
+        }
+        svg {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

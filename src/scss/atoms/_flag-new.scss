@@ -1,0 +1,17 @@
+%flag {
+  @extend %bobby;
+  color: $clr_white;
+  padding: 0 1rem;
+  @extend %border_radius-lozenge;
+}
+
+.flag-featured {
+  @extend %flag;
+  background: $clr_brand-primary;
+}
+
+.tease-post .flag-featured {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}

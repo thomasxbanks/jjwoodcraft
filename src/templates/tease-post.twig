@@ -1,0 +1,29 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+    {% if post.thumbnail.src %}
+        {% include 'partial/hero-image.twig' %}
+    {% endif %}
+    <header class="content_container">
+        <h1 class="title">
+            <a href="{{post.link}}">{{post.title}}</a>
+        </h1>
+    </header>
+    {% include 'partial/post-meta.twig' %}
+
+    {% if post.class matches '/sticky/' %}
+        <span class="flag-featured">Featured</span>
+    {% endif %}
+
+    <div class="content_container content">
+        {{ post.excerpt ? post.excerpt : post.content|split('</p>')[0] }}
+    </div>
+    <footer class="content_container">
+        {% include 'atoms/read-more.twig' with {
+            'title': post.title,
+            'author': post.author,
+            'url': post.link
+        } %}
+        {% include 'partial/category-list.twig' %}
+    </footer>
+{% endblock %}

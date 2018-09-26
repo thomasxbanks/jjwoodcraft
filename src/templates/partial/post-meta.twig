@@ -1,0 +1,17 @@
+<div class="post-meta content_container">
+    <ul class="icon-list">
+        <li aria-label="Written by {{post.author.name}}" class="post-meta-author">
+            <a href="{{post.author.link}}">
+                {{post.author.name}}
+            </a>
+        </li>
+        <li aria-label="Posted on {{post.date}}" class="post-meta-posted-date">
+            <time datetime="{{post.date|date(" y-m-d\\th:i:sp")}}"=" y-m-d\\th:i:sp" )}}"=" y-m-d\\th:i:sp")}}"="Y-m-d\\TH:i:sP" )}}""=")}}""" " ">{{post.date}}</time>
+        </li>
+        <li aria-label="Reading time approximately {{post.content|split(' ')|length // 250}}
+            minutes" class="post-meta-reading-time">
+            {{post.content|split(' ')|length // 250}}
+            minutes
+        </li>
+    </ul>
+</div>

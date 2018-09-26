@@ -1,0 +1,7 @@
+.post {
+  .card {
+    @extend %central-column;
+    max-width: $content-width;
+    margin-top: 2rem;
+  }
+}

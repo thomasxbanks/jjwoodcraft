@@ -1,0 +1,23 @@
+.site-footer {
+  background: $clr_transparent;
+
+  .inner {
+    background: $clr_transparent;
+    @extend %padding-vertical;
+    @extend %padding-horizontal;
+    @extend %grid;
+    @extend %grid_row;
+    @extend %align-center;
+    @extend %justify-between;
+    @extend %bobby;
+    color: $clr_boulder;
+
+    cite {
+      font-style: normal;
+    }
+
+    a {
+      @extend %text-link;
+    }
+  }
+}

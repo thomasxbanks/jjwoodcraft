@@ -1,0 +1,24 @@
+%card {
+  @extend %border_radius-std;
+  border: $border_width-thin solid $clr_silver;
+  background: $clr_white;
+  box-shadow: $box-shadow;
+}
+
+.card {
+  @extend %card;
+}
+
+.post .content_container {
+  @extend %central-column;
+}
+
+.content_container {
+  max-width: $content-width;
+  .title,
+  .title a {
+    @extend %christopher;
+    color: $clr_black;
+    text-decoration: none;
+  }
+}

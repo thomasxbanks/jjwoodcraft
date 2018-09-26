@@ -1,0 +1,96 @@
+%base {
+  font-smooth: auto;
+  font-size-adjust: none;
+  font-variant: normal;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  font-style: normal;
+}
+
+%tony {
+  // Mobile/H1
+  @extend %base;
+  font-family: $font_face-accent;
+  font-weight: 300;
+  font-size: 1.6rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H1
+    font-size: 2rem;
+  }
+}
+
+%silvio {
+  // Mobile/H2
+  @extend %base;
+  font-family: $font_face-accent;
+  font-weight: 300;
+  font-size: 1.5rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H2
+    font-size: 1.9rem;
+  }
+}
+
+%paulie {
+  // Mobile/H3
+  @extend %base;
+  font-family: $font_face-accent;
+  font-weight: 300;
+  font-size: 1.4rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H3
+    font-size: 1.8rem;
+  }
+}
+
+%christopher {
+  // Mobile/H4
+  @extend %base;
+  font-family: $font_face-accent;
+  font-weight: 300;
+  font-size: 1.25rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H4
+    font-size: 1.5rem;
+  }
+}
+
+%ralphie {
+  // Mobile/H5
+  @extend %base;
+  font-family: $font_face-accent;
+  font-weight: 300;
+  font-size: 1rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H5
+    font-size: 1rem;
+  }
+}
+
+%richie {
+  // black for body copy, blue for links, red for error messages, grey for placeholders and footer, white for primary nav
+  @extend %base;
+  font-family: $font_face-main;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+%bobby {
+  @extend %base;
+  font-family: $font_face-main;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+%junior {
+  @extend %base;
+  font-family: $font_face-main;
+  font-weight: bold;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+  @media screen and (min-width: $breakpoint-min) {
+    // Desktop/H6
+    font-size: 0.875rem;
+  }
+}

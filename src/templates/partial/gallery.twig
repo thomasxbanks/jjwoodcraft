@@ -1,0 +1,10 @@
+<div class="gallery_container">
+    {% for image in gallery %}
+        <figure>
+            {% include 'atoms/image.twig' with {
+                'image' : image.thumbnail
+            } %}
+            <figcaption>{{image.content}}</figcaption>
+        </figure>
+    {% endfor %}
+</div>

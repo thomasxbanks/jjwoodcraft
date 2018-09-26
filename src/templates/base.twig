@@ -1,0 +1,40 @@
+{% block html_head_container %}
+
+    {% include 'html-header.twig' %}
+    {% block head %}{% endblock %}
+</head>
+{% endblock %}
+
+<body class="{{body_class}}" data-template="base.twig" data-title="{% if wp_title %}
+            {{ wp_title }}
+        {% else %}
+            {{ site.name }}
+        {% endif %}">
+<header class="site-header" id="masthead">
+    {% block header %}
+        <div class="inner">
+            <span class="company-logo" role="banner">
+                <a href="{{site.url}}" rel="home">{{site.name}}</a>
+            </span>
+            {% include "nav.twig" %}
+        </div>
+    {% endblock %}
+</header>
+{% include "partial/gallery.twig" %}
+{% if ('single' in body_class) %}
+    <main id="content">
+    {% else %}
+        <main id="content" class="teaser-grid">
+        {% endif %}
+
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+        {% include 'footer.twig' %}
+        {{ function('wp_footer') }}
+    {% endblock %}
+</body>
+</html>

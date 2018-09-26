@@ -1,0 +1,91 @@
+// Layout
+html {
+  -ms-text-size-adjust: 100%; // Prevents font resizing on Internet Explorer
+  -webkit-text-size-adjust: 100%; // Prevents font resizing on Chrome and Safari
+  * {
+    box-sizing: border-box; // Forces padding to be considered part of the width of an element
+    -webkit-font-smoothing: antialiased; // Cleans up font appearance on Chrome and Safari
+    -moz-osx-font-smoothing: grayscale; // Cleans up font appearance on Firefox
+  }
+  font-size: 18px;
+  @media (min-width: 768px) {
+    font-size: between(22px, 18px, 768px, $content-width);
+  }
+  @media (min-width: $content-width) {
+    font-size: 20px;
+  }
+  @media (min-width: $max-width) {
+    font-size: 22px;
+  }
+}
+
+body {
+  margin: 0; // Remove browser applied margins
+  overflow-x: hidden; // Prevent side-scroll
+  @supports (scroll-behavior: smooth) {
+    scroll-behavior: smooth; // Progressive enhancement. Animates scroll to anchor without JavaScript
+  }
+  background: $clr_wildsand;
+  line-height: 1.8em;
+}
+
+main,
+section {
+  display: block; // To fix IE not understanding these "new" tags
+}
+
+// Normalise the typography settings across the site
+// Style the highlight selection of web copy
+::selection {
+  color: white;
+  background: black;
+}
+
+// Reset headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+// Default bold settings
+b,
+strong {
+  font-weight: bold;
+}
+
+// Default italic settings
+i,
+em {
+  font-style: italic;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+// Buttons
+button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+// Forms
+fieldset {
+  border: 0;
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}

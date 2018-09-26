@@ -1,0 +1,24 @@
+// Grayscale
+$clr_black: black;
+$clr_mineshaft: #333333;
+$clr_boulder: #454545;
+$clr_silver: #ececec;
+$clr_wildsand: #f4f4f4;
+$clr_white: #ffffff;
+// Utility
+$clr_success: #62b741;
+$clr_warning: #fdba01;
+$clr_failure: #e53e3c;
+// Brand hierarchy
+$clr_brand-primary: springgreen;
+$clr_brand-secondary: brown;
+// Transparencies
+$clr_transparent: rgba(255,
+255,
+255,
+0); // White with zero opacity works best in Safari
+$clr_black-75: rgba($clr_black, 0.75);
+// Gradients
+$clr_gradient-dark: linear-gradient($clr_transparent 50%,
+$clr_transparent 50%,
+$clr_black-75 100%);
