@@ -20,11 +20,11 @@
         </div>
     {% endblock %}
 </header>
-{% include "partial/gallery.twig" %}
+
 {% if ('single' in body_class) %}
     <main id="content">
     {% else %}
-        <main id="content" class="teaser-grid">
+        <main>
         {% endif %}
 
         {% block content %}

@@ -77,7 +77,7 @@ class StarterSite extends TimberSite {
 			'posts_per_page' => -1,
 			// Order by post date
 			'orderby' => array(
-					'date' => 'DESC'
+				'date' => 'ASC'
 			));
 			
 		$context['gallery'] = Timber::get_posts( $args );

@@ -1,11 +1,9 @@
 %central-column {
+  font-size: 1rem;
   max-width: $max-width;
+  max-width: 60ch;
   margin-right: auto;
   margin-left: auto;
-  @media screen and (max-width: $max-width) {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
 }
 
 %dead-center {
@@ -20,6 +18,7 @@
 
 %padding-right {
   padding-right: 1rem;
+
   @media screen and (min-width: 768px) {
     padding-right: 3rem;
   }
@@ -31,6 +30,7 @@
 
 %padding-left {
   padding-left: 1rem;
+
   @media screen and (min-width: 768px) {
     padding-left: 3rem;
   }

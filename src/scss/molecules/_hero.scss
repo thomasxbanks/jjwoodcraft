@@ -1,5 +1,6 @@
 $hero_width: 100%;
-$hero_height: 90vh;
+$hero_height: 100vh;
+
 // Unchanging appearance settings
 .hero_container {
   width: $hero_width;
@@ -12,6 +13,7 @@ $hero_height: 90vh;
   position: relative;
   width: $hero_width;
   height: $hero_height;
+
   img {
     position: absolute;
     top: 0;
@@ -22,12 +24,15 @@ $hero_height: 90vh;
     height: $hero_height;
     object-fit: cover;
     transition: opacity $ease-main $speed-slow;
+
     &.hero-thumb {
       z-index: 1;
     }
+
     &.hero-full {
       z-index: 0;
     }
+
     &.hide {
       opacity: 0;
     }

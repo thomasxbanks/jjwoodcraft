@@ -1,0 +1,63 @@
+<div class="gallery_carousel">
+    <img class="hero-logo" src="{{site.theme.link}}/img/logo.png"/>
+    <div class="carousel_track">
+        {% for image in gallery %}
+            <figure class="{{loop.index0}}">
+                {% include 'atoms/image.twig' with {
+                    'image' : image.thumbnail
+                } %}
+            </figure>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    const carouselContainer = document.querySelector('.gallery_carousel')
+
+    const carouselTrack = document.querySelector('.carousel_track')
+    const slides = document.querySelectorAll('figure')
+    const slideWidth = window.getComputedStyle(slides[0], null).getPropertyValue('width')
+    const slideWidthInt = ~~(slideWidth.substr(0, slideWidth.length - 2));
+    carouselTrack.style.width = `${slideWidthInt * slides.length}px`
+    const animateTrack = () => {
+        return new Promise(function (resolve, reject) {
+            // do a thing, possibly async, then…
+            carouselTrack.dataset.animate = "true"
+            resolve('animate track');
+        })
+    }
+    const deanimateTrack = () => {
+        return new Promise(function (resolve, reject) {
+            // do a thing, possibly async, then…
+            carouselTrack.dataset.animate = "false"
+            resolve('deanimate track');
+        })
+    }
+    const moveTrackFinish = () => {
+        return new Promise(function (resolve, reject) {
+            carouselTrack.style.transform = `translateX(-${slideWidth})`;
+            setTimeout(() => {
+                resolve('move track left', `translateX(-${slideWidth})`);
+            }, 600)
+        })
+    }
+    const moveTrackStart = () => {
+        return new Promise(function (resolve, reject) {
+            carouselTrack.style.transform = `translateX(0)`;
+            resolve('move track back to start');
+        })
+    }
+    const sortSlides = () => {
+        return new Promise(function (resolve, reject) {
+            const slides = document.querySelectorAll('figure')
+            carouselTrack.insertAdjacentElement('beforeend', slides[0]);
+            resolve('sort slides');
+        })
+    }
+    setInterval(() => {
+        animateTrack()
+            .then(moveTrackFinish)
+            .then(sortSlides)
+            .then(deanimateTrack)
+            .then(moveTrackStart)
+    }, 10000)
+</script>
