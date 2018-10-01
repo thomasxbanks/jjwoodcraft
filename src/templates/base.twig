@@ -14,9 +14,14 @@
     {% block header %}
         <div class="inner">
             <span class="company-logo" role="banner">
-                <a href="{{site.url}}" rel="home">{{site.name}}</a>
+                <a href="{{site.url}}" rel="home">
+                    <img class="hero-icon" src="{{site.theme.link}}/img/icon.png"/>{{site.name}}
+                </a>
             </span>
-            {% include "nav.twig" %}
+            {% include 'menu.twig' with {
+                'menu' : primaryNavigation,
+                'navigation': 'nav-primary'
+            } %}
         </div>
     {% endblock %}
 </header>

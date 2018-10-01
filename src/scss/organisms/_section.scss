@@ -1,7 +1,8 @@
-.post {
-  .card {
-    @extend %central-column;
-    max-width: $content-width;
-    margin-top: 2rem;
-  }
+.section-title {
+  @extend %tony;
+  @extend %central-column;
+  @extend %padding-top-standard;
+  @extend %padding-horizontal-standard;
+  @extend %padding-bottom-narrow;
+  text-align: center;
 }

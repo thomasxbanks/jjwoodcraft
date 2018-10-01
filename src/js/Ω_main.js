@@ -12,6 +12,7 @@ window.onload = () => {
     // If we aren't, amend the string in the includes() function
     document.documentElement.classList.remove('redline');
     document.getElementById('devCss').outerHTML = '';
+    removeParagraphFromImages();
   }
 };
 

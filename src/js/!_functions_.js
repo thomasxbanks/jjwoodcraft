@@ -44,3 +44,16 @@ const makeElementIsVisible = (element) => {
 const makeElementNotVisible = (element) => {
   element.setAttribute('data-state', 'not-visible');
 };
+
+const removeParagraphFromImages = () => {
+  let imgs = document.querySelectorAll('img');
+  imgs.forEach((img) => {
+    var parent = img.parentElement;
+    if (parent.tagName === 'P') {
+      var container = img.parentElement.parentElement;
+      var image = parent.firstChild;
+      container.insertBefore(image, parent);
+      parent.outerHTML = '';
+    }
+  });
+};

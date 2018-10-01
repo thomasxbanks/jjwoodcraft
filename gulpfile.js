@@ -30,7 +30,7 @@ let htmlmin = require('gulp-htmlmin');
 // Define I/O paths
 let root = './';
 let src = 'src/';
-let dist = '../wp-content/themes/jjwoodcraft/';
+let dist = '../www/wp-content/themes/jjwoodcraft/';
 
 let path = {
   css: {

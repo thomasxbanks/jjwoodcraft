@@ -1,0 +1,23 @@
+.page {
+  main {
+    .content-wrapper {
+      :not(img) {
+        @extend %central-column;
+      }
+
+      p {
+        @extend %richie;
+        display: block;
+        margin-bottom: 1em;
+      }
+
+      img {
+        display: block;
+        width: 75vw;
+        max-width: 100%;
+        height: auto;
+        margin: 1rem auto;
+      }
+    }
+  }
+}
