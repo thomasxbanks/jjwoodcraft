@@ -7,8 +7,9 @@
 
       p {
         @extend %richie;
+        color: $clr_mineshaft;
         display: block;
-        margin-bottom: 1em;
+        margin-bottom: 1.6em;
       }
 
       img {
