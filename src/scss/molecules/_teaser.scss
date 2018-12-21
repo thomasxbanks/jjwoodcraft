@@ -3,16 +3,19 @@
   @extend %grid_column;
   @extend %align-stretch;
   @extend %justify-start;
+
   @media screen and (max-width: $content-width) {
     display: block !important;
     width: 100% !important;
   }
+
   position: relative;
 }
 
 .teaser_container {
   @extend %central-column;
   font-size: 0;
+
   .teaser_container-column {
     @extend %grid;
     @extend %grid_row;
@@ -21,6 +24,7 @@
     @extend %justify-between;
     width: 100%;
   }
+
   @media screen and (min-width: $breakpoint-min) {
     display: flex;
   }
@@ -29,18 +33,27 @@
 .tease {
   @extend %card;
   @extend %teaser;
-  width: calc(33.33% - 2rem);
+  width: 100%;
+
+  @media screen and (min-width: $breakpoint-min) {
+    width: calc(33.33% - 2rem);
+  }
+
   margin: 0.5rem;
   flex-grow: 1;
   overflow: hidden;
+
   .hero_container {
     height: 15rem;
+
     img {
       height: 15rem;
     }
   }
+
   .content_container {
     padding: 0.5rem 1rem;
+
     .title,
     .title a {
       @extend %christopher;
@@ -48,18 +61,22 @@
       text-decoration: none;
     }
   }
+
   footer {
     margin-top: auto;
     display: block;
   }
+
   .title {
     margin-top: 1em;
+
     a {
       @extend %christopher;
       color: $clr_black;
       text-decoration: none;
     }
   }
+
   .content {
     .read-more {
       display: none;
