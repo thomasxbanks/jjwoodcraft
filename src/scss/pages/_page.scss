@@ -1,9 +1,8 @@
 .page {
   main {
     .content-wrapper {
-      :not(img) {
-        @extend %central-column;
-      }
+      @extend %central-column;
+      @extend %padding-horizontal-narrow;
 
       p {
         @extend %richie;
@@ -14,10 +13,9 @@
 
       img {
         display: block;
-        width: 75vw;
-        max-width: 100%;
+        max-width: calc(100% + 10rem);
         height: auto;
-        margin: 1rem auto;
+        margin: 1rem -5rem;
       }
     }
   }
