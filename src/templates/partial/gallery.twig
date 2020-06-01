@@ -1,12 +1,9 @@
-<div class="gallery_container">
-    {% for image in gallery %}
-        <figure>
-            <a href="{{image.link}}" title="{{image.post_title}}">
-                {% include 'atoms/image.twig' with {
-                    'image' : image.thumbnail
-                } %}
-                <figcaption>{{image.thumbnail.alt}}</figcaption>
-            </a>
-        </figure>
-    {% endfor %}
+<div class="central-column">
+	<div class="tease_container">
+		{% for image in items %}
+			{% include 'tease.twig' with {
+        post: image
+      } %}
+		{% endfor %}
+	</div>
 </div>

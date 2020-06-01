@@ -1,14 +1,20 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    {% include "partial/carousel.twig" %}
-    <h2 class="section-title">Why
-        <strong>J &amp; J Woodcraft</strong>?
-    </h2>
-    <article class="content-wrapper post-type-{{post.post_type}}" id="post-{{post.ID}}">
-        {{post.content}}
-    </article>
-    <h2 class="section-title">Gallery</h2>
-    {% include "partial/gallery.twig" %}
-    <!-- /content-wrapper -->
+	{# {% include "partial/carousel.twig" %} #}
+	<div class="homepage-hero">
+		<img class="hero-logo" src="{{site.theme.link}}/img/logo.png" alt="{{site.name}}"/>
+		<img src="{{site.theme.link}}/img/purpleheart.jpg" role="presentation">
+	</div>
+	<article class="central-column content-width" id="post-{{post.ID}}">
+		<h2 class="section-title">{{post.post_title}}</h2>
+		{{post.content}}
+	</article>
+	<div class="central-column">
+		<h2 class="section-title">Gallery</h2>
+  </div>
+	{% include "partial/gallery.twig" with {
+      items: gallery
+    } %}
+	<!-- /content-wrapper -->
 {% endblock %}

@@ -1,0 +1,48 @@
+.nav-primary {
+  ul {
+    @extend %semantic-list;
+    @extend %horizontal-list;
+
+    li {
+      a {
+        @extend %bobby;
+        color: $clr_white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.nav-drop-down {
+  ul {
+    @extend %semantic-list;
+    @extend %horizontal-list;
+
+    li {
+      @extend %bobby;
+      color: $clr_white;
+
+      a {
+        @extend %bobby;
+        color: $clr_white;
+        text-decoration: none;
+      }
+
+      ul {
+        position: fixed;
+        top: -55000px;
+        left: -55000px;
+        z-index: 10;
+        background-color: black;
+        box-shadow: 0.125rem 0.125rem 0.25rem rgab(0, 0, 0, 0.15);
+        width: max-content;
+        padding: 1rem;
+      }
+
+      &:hover ul {
+        top: auto;
+        left: auto;
+      }
+    }
+  }
+}

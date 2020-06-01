@@ -3,6 +3,7 @@
   border: $border_width-thin solid $clr_silver;
   background: $clr_white;
   box-shadow: $box-shadow;
+  padding: 1rem;
 }
 
 .card {
@@ -15,6 +16,7 @@
 
 .content_container {
   max-width: $content-width;
+
   .title,
   .title a {
     @extend %christopher;

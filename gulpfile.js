@@ -28,9 +28,11 @@ let imagemin = require('gulp-imagemin');
 let htmlmin = require('gulp-htmlmin');
 
 // Define I/O paths
+const pkg = require('./package.json');
+
 let root = './';
 let src = 'src/';
-let dist = '../www/wp-content/themes/jjwoodcraft/';
+let dist = `www/wp-content/themes/${pkg.name}/`;
 
 let path = {
   css: {
@@ -89,8 +91,8 @@ gulp.task('default', function(callback) {
 // Watching for changes
 gulp.task('watch', function(callback) {
   browserSync.init({
-    proxy: 'http://localhost:8008',
-    files: ['dist/**/*.*'],
+    proxy: 'http://jjwoodcraft.lxl',
+    files: ['www/**/*.*'],
     port: 1337,
   });
   const tasks = ['js', 'css', 'php', 'img', 'templates', 'static', 'wordpress'];

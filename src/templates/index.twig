@@ -1,12 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<section class="teaser_container">
-		<section class="teaser_container-column">
-		{% for post in posts %}
-			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-		{% endfor %}
-		</section>
-	</section>
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	<h2 class="section-title central-column">{{title}}</h2>
+	<article class="central-column card" id="post-{{post.ID}}">
+		{{post.content}}
+	</article>
+	{% include "partial/gallery.twig" with {
+      items: gallery
+    } %}
+	<!-- /content-wrapper -->
 {% endblock %}

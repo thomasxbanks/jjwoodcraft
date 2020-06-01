@@ -1,14 +1,11 @@
 {
-  "name": "igt-casino-lounge",
+  "name": "jjwoodcraft",
   "version": "0.1.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "gulp && gulp watch",
-    "test": "echo \"#YOLO!🤣\" && exit 0",
-    "updatePm2": "pm2 save && npm install pm2 -g && pm2 update",
-    "startPm2": "pm2 kill && pm2 start ./dist/server.js -f --watch",
-    "deploy": "git pull && npm install && npm run updatePm2 && gulp production && npm run startPm2 && gulp watch"
+    "test": "echo \"#YOLO!🤣\" && exit 0"
   },
   "keywords": [],
   "author": "",

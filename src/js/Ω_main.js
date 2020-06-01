@@ -1,20 +1,58 @@
 'use strict';
 
-window.onload = () => {
-  document.documentElement.classList.replace('no-js', 'is-js'); // Tells us that JS isn't disabled in the browser.
+const masthead = document.querySelector('#masthead');
 
-  if (window.location.href.indexOf('local') === -1) {
-    // In case we forget to remove
-    // the .redline class
-    // or the development css
-    // prior to production, this will remove it for us.
-    // Presumes we're using a xxx.local or localhost:PORT syntax development URI
-    // If we aren't, amend the string in the includes() function
-    document.documentElement.classList.remove('redline');
-    document.getElementById('devCss').outerHTML = '';
-    removeParagraphFromImages();
+const handleColumnAdjust = () => {
+  const macyInstance = Macy({
+    container: '.tease_container',
+    margin: 16,
+    useContainerForBreakpoints: true,
+    breakAt: {
+      600: {
+        columns: 1,
+      },
+      768: {
+        columns: 2,
+      },
+      1200: {
+        columns: 3,
+      },
+    },
+  });
+  macyInstance.recalculate();
+};
+
+const setPadding = () => {
+  const homepageHero = document.querySelector('.homepage-hero');
+  const mastheadHeight = window.getComputedStyle(masthead, null).getPropertyValue('height');
+  document.body.style.paddingTop = mastheadHeight;
+  if (homepageHero && mastheadHeight) {
+    homepageHero.style.padding = `${parseInt(mastheadHeight.slice(0, -2), 10) / 2}px`;
   }
 };
+
+const toggleDropDown = (event) => {
+  const { target } = event;
+  const { parentElement } = target;
+  const { active } = parentElement.dataset;
+  const state = active === 'true';
+  parentElement.dataset.active = !state;
+};
+
+const initDropDown = () => {
+  const dropDown = masthead.querySelector('[data-action="toggle-nav"]');
+  dropDown.addEventListener('click', toggleDropDown);
+};
+
+window.onload = () => {
+  document.documentElement.classList.replace('no-js', 'is-js'); // Tells us that JS isn't disabled in the browser.
+  setPadding();
+  handleColumnAdjust();
+  initDropDown();
+};
+
+window.addEventListener('resize', handleColumnAdjust);
+window.addEventListener('resize', setPadding);
 
 let CurrentScroll = 0;
 window.addEventListener(
@@ -28,32 +66,6 @@ window.addEventListener(
     } else {
       // Scroll up the page
       masthead.setAttribute('data-visibility', 'true');
-    }
-
-    const article = document.querySelector('.post .card');
-    if (article) {
-      var articleHeight = parseInt(window.getComputedStyle(article).getPropertyValue('height'));
-      var bottom = articleHeight - browser.height;
-      var pxPerc = browser.width / 100;
-      var percentage;
-      if (scrollTop > 0 && scrollTop < articleHeight - browser.height) {
-        percentage = pxPerc * (Math.max(0, Math.min(1, scrollTop / bottom)) * 100);
-      }
-      if (scrollTop <= 0) {
-        percentage = 0;
-      }
-      if (scrollTop >= bottom) {
-        percentage = browser.width;
-      }
-      console.log(pxPerc, percentage, browser.width, `${percentage}px`);
-      document.querySelector('#indicator').style.width = `${percentage}px`;
-    }
-
-    // Show/hide Masthead
-    if (CurrentScroll > browser.height / 2) {
-      masthead.setAttribute('data-state', 'is-active');
-    } else {
-      masthead.setAttribute('data-state', 'not-active');
     }
 
     CurrentScroll = scrollTop; // Updates current scroll position

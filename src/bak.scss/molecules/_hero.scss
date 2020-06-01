@@ -7,6 +7,7 @@ $hero_height: 80vh;
   height: $hero_height;
   position: relative;
   @extend %grid;
+  padding: 2rem;
 }
 
 .hero_container {
@@ -20,9 +21,10 @@ $hero_height: 80vh;
     right: 0;
     bottom: 0;
     left: 0;
-    width: $hero_width;
-    height: $hero_height;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    outline: 2px solid goldenrod;
     transition: opacity $ease-main $speed-slow;
 
     &.hero-thumb {

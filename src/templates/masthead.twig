@@ -1,0 +1,24 @@
+<header class="site-header" id="masthead">
+	<span class="company-logo" role="banner">
+		<a href="{{site.url}}" rel="home">
+			<img class="hero-icon" src="{{site.theme.link}}/img/icon.png"/><span>{{site.name}}</span>
+		</a>
+	</span>
+	<div class="nav_container">
+		<nav class="nav-primary">
+			{% include 'menu.twig' with {
+                'menu' : primaryNavigation
+            } %}
+		</nav>
+		<nav class="drop-down">
+			<ul>
+				<li data-active="false">
+					<span data-action="toggle-nav">Categories</span>
+					{% include 'menu.twig' with {
+                'menu' : categoryNavigation
+            } %}
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>

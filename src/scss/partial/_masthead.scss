@@ -1,0 +1,46 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.25rem 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform ease 300ms;
+
+  &[data-visibility="false"] {
+    transform: translateY(-100%);
+  }
+
+  &[data-visibility="true"] {
+    transform: none;
+  }
+
+  .company-logo {
+    a {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-family: 'Arima Madurai', serif;
+      font-size: 1rem;
+      line-height: 2rem;
+      color: white;
+      text-decoration: none;
+
+      img {
+        height: 2rem;
+        object-fit: contain;
+        margin-right: 1ch;
+        margin-bottom: 0.5em;
+      }
+
+    }
+
+  }
+}

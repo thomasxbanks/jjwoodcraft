@@ -1,14 +1,12 @@
 {% if menu %}
-    <nav class="{{navigation}}">
-        <ul>
-            {% for item in menu.items %}
-                <li class="{{ item.classes | join(' ') }}">
-                    <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-                    {% include "menu.twig" with {
-                        'menu' : item.get_children
-                    } %}
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
+	<ul>
+		{% for item in menu.items %}
+			<li class="{{ item.classes | join(' ') }}">
+				<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+				{% include "menu.twig" with {
+          'menu' : item.get_children
+        } %}
+			</li>
+		{% endfor %}
+	</ul>
 {% endif %}

@@ -1,13 +1,10 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    {% include 'partial/hero-image.twig' %}
-    <article class="card">
-        <header class="content-wrapper">
-            <h1 class="section-title">{{ post.title }}</h1>
-        </header>
-        <div class="content-wrapper">
-            {{post.content}}
-        </div>
-    </article>
+	{% include 'partial/hero-image.twig' %}
+	<article class="central-column content-width">
+		<h1 class="section-title">{{ post.title }}</h1>
+		{{post.content}}
+	</article>
+	{% include 'partial/cta.twig' %}
 {% endblock %}

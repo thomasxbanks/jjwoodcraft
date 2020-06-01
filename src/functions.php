@@ -42,6 +42,7 @@ function cpt_gallery()
     'menu_position' => 5,
     'supports'      => array( 'title', 'editor', 'thumbnail' ),
     'has_archive'   => true,
+    'taxonomies'  => array( 'category' ),
     'rewrite' => array(
         'slug' => 'gallery'
     )
@@ -49,6 +50,42 @@ function cpt_gallery()
     register_post_type('gallery_image', $args); 
 }
 add_action('init', 'cpt_gallery');
+
+
+/* This will add the text fields to the General Settings page */
+$cta_copy = new call_to_action(
+    array(
+    'slug'       => 'cta_copy',
+    'field_name' => 'cta_copy_field',
+    'title'      => 'Call to action text',
+    'type'       => 'text',
+    )
+);
+
+class Call_to_action
+{
+    function __construct( $args )
+    {
+        $this->slug       = $args['slug'];
+        $this->field_name = $args['field_name'];
+        $this->title      = $args['title'];
+        $this->type       = $args['type'];
+        add_filter('admin_init', array( &$this, 'register_fields' ));
+    }
+
+    function register_fields()
+    {
+        register_setting('general', $this->slug, 'esc_attr');
+        add_settings_field($this->field_name, '<label for="' . $this->slug . '">' . __($this->title, $this->slug) . '</label>', array( &$this, 'fields_html'), 'general');
+    }
+
+    function fields_html()
+    {
+        $value = get_option($this->slug, '');
+        echo '<input type="' . $this->type . '" id="' . $this->slug . '" name="' . $this->slug . '" value="' . $value . '" />';
+    }
+}
+
 
 class StarterSite extends TimberSite
 {
@@ -83,7 +120,10 @@ class StarterSite extends TimberSite
         $context['notes'] = 'These values are available everytime you call Timber::get_context();';
         $context['menu'] = new TimberMenu();
         $context['primaryNavigation'] = new TimberMenu('Primary Navigation');
+        $context['categoryNavigation'] = new TimberMenu('Category Navigation');
         $context['site'] = $this;
+        $context['ctaCopy'] = get_option( 'cta_copy' );
+
         $args = array(
         // Get post type project
         'post_type' => 'gallery_image',
@@ -91,7 +131,7 @@ class StarterSite extends TimberSite
         'posts_per_page' => -1,
         // Order by post date
         'orderby' => array(
-        'date' => 'ASC'
+        'date' => 'DESC'
         ));
             
         $context['gallery'] = Timber::get_posts($args);

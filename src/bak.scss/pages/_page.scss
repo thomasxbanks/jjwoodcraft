@@ -1,0 +1,8 @@
+.page {
+  main {
+    .content-wrapper {
+      @extend %central-column;
+      @extend %padding-horizontal-narrow;
+    }
+  }
+}

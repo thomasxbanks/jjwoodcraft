@@ -1,4 +1,19 @@
+{% set caption = '' %}
+{% if post.thumbnail.alt is not empty %}
+	{% set caption = post.thumbnail.alt %}
+{% endif %}
+{% if post.thumbnail.description is not empty %}
+	{% set caption = post.thumbnail.description %}
+{% endif %}
+{% if post.thumbnail.caption is not empty %}
+	{% set caption = post.thumbnail.caption %}
+{% endif %}
+
 <figure class="hero_container">
-  <img class="hero-thumb" src="{{ post.thumbnail.src|resize(15)}}" alt="{{post.thumbnail.alt}}">
-  <img class="hero-full hide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}">
+	{% include 'atoms/image.twig' with {
+    'image' : post.thumbnail
+  } %}
+	{% if caption is not same as ( post.post_title ) %}
+		<figcaption>{{caption}}</figcaption>
+	{% endif %}
 </figure>

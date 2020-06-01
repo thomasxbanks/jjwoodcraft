@@ -1,16 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <div class="content-wrapper">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content">
-                <h1 class="article-h1">{{post.title}}</h1>
-                <div class="article-body">
-                    {{post.content}}
-                </div>
-            </section>
-        </article>
-    </div>
-    {% include "partial/gallery.twig" %}
-    <!-- /content-wrapper -->
+	<h2 class="section-title central-column">{{title}}</h2>
+	{% if description %}
+		<article class="central-column card" id="post-{{post.ID}}">
+			{{description}}
+		</article>
+	{% endif %}
+	{% include "partial/gallery.twig" with {
+      items: items
+    } %}
+	<!-- /content-wrapper -->
 {% endblock %}
